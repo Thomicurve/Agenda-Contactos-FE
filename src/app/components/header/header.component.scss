@@ -1,0 +1,12 @@
+@import 'src/assets/styles/variables.scss';
+
+header {
+    padding: 15px 0px;
+    background-color: $principal-color;
+
+    h3 {
+        margin-left: 20px;
+        text-transform: uppercase;
+        color: #fff;
+    }
+}
