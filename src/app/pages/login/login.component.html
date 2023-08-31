@@ -33,7 +33,7 @@
         </div>
       </div>
       <div class="button-wrapper">
-        <button [disabled]="loginForm.status == 'INVALID'" type="submit">Enviar</button>
+        <button (click)="submitLogin()" [disabled]="loginForm.status == 'INVALID'" type="submit">Enviar</button>
       </div>
       <div class="register-text">
         <p>
