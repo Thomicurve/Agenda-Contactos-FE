@@ -3,13 +3,24 @@
 .form-wrapper {
     width: 500px;
     padding: 30px 40px;
-    margin: 120px auto;
+    margin: 100px auto;
     background: linear-gradient(-45deg, $secondary-color, $principal-color);
     border-radius: 10px;
     color: #fff;
     position: relative;
     box-sizing: border-box;
     
+    a {
+        color: #fff;
+    }
+
+    .error-wrapper {
+        margin-top: 5px;
+        p {
+            color: $error-color;
+            font-size: 12px;
+        }
+    }
 
     .form-header {
         width: 100%;
@@ -67,18 +78,29 @@
         justify-content: center;
         
         button {
-            background: #3a0ca3;
-            box-shadow: 0px 0px 0px #fff;
-            color: #fff;
+            background: #fff;
+            transform: translateY(0px);
+            color: #000;
+            margin: 0px 10px;
             border: none;
             border-radius: 15px;
             padding: 5px 20px;
-            transition: box-shadow 0.5s ease;
+            transition: transform 0.5s ease;
             cursor: pointer;
         }
 
+        button:disabled {
+            background: #ffffff4d;
+            color: #0000004d;
+            cursor: not-allowed;
+        }
+
+        button:disabled:hover {
+            transform: translateY(0px);
+        }
+
         button:hover {
-            box-shadow: 0px 0px 10px #fff;
+            transform: translateY(-2px);
 
         }
     }

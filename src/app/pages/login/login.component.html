@@ -1,23 +1,46 @@
 <main>
-    <div class="form-wrapper">
-        <header class="form-header">
-            <h2>Login</h2>
-        </header>
-        <form>
-            <div class="input-card">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="input-card">
-                <label for="password">Contraseña</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <div class="button-wrapper">
-                <button type="submit">Enviar</button>
-            </div>
-            <div class="register-text">
-                <p>No poses una cuenta aún? <a routerLink="/register">Registrese ahora</a></p>
-            </div>
-        </form>
-    </div>
+  <div class="form-wrapper">
+    <header class="form-header">
+      <h2>Login</h2>
+    </header>
+    <form #loginForm="ngForm">
+      <div class="input-card">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          #email="ngModel"
+          ngModel
+        />
+        <div class="error-wrapper" *ngIf="loginForm.value.email == '' && loginForm.touched">
+            <p>El campo 'Email' es requerido.</p>
+        </div>
+      </div>
+      <div class="input-card">
+        <label for="password">Contraseña</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          ngModel
+          #password="ngModel"
+          required
+        />
+        <div class="error-wrapper" *ngIf="loginForm.value.password == '' && password.touched">
+            <p>El campo 'Contraseña' es requerido.</p>
+        </div>
+      </div>
+      <div class="button-wrapper">
+        <button [disabled]="loginForm.status == 'INVALID'" type="submit">Enviar</button>
+      </div>
+      <div class="register-text">
+        <p>
+          No poses una cuenta aún?
+          <a routerLink="/register">Registrese ahora</a>
+        </p>
+      </div>
+    </form>
+  </div>
 </main>
