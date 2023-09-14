@@ -1,0 +1,81 @@
+
+::ng-deep {
+    @import "src/assets/styles/variables.scss";
+
+    main {
+        border-radius: 10px;
+    }
+    .card-detail-container {
+        border-radius: 10px;
+
+        &__header {
+            background: linear-gradient(to right, $principal-color, $secondary-color);
+            height: 100px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        &__body {
+            background-color: #fff;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border: 1px solid $card-border-color;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        &__img-container {
+            width: 90px;
+            height: 90px;
+            border-radius: 100px;
+            background-color: #fff;
+            transform: translateY(-40px);
+            transition: transform 0.5s ease;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+            overflow: hidden;
+            
+            &:hover {
+                transform: translateY(-40px) scale(1.1);
+            }
+
+            img {
+                width: 90px;
+            }
+        }
+
+        &__info {
+            text-align: center;
+            margin-top: -20px;
+            width: 100%;
+        }
+    }
+
+    .name-text {
+        font-weight: 600;
+        font-size: 18px;
+    }
+
+    .company-text {
+        font-weight: 300;
+        font-size: 14px;
+        margin-bottom: 25px;
+        color: #ccc;
+    }
+
+    .contact-container h5 {
+        color: $principal-color;
+    }
+
+    .contact-text-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin-bottom: 20px;
+        width: 100%;
+
+        &__text {
+            font-size: 12px;
+            margin-top: 10px;
+        }
+    }
+}

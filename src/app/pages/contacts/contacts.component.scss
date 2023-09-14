@@ -1,0 +1,27 @@
+::ng-deep {
+
+    @import 'src/assets/styles/variables.scss';
+
+    .contacts-container {
+        overflow-y: auto;
+        height: calc(100vh - 200px);
+        position: relative;
+    }
+
+    .down-arrow-button {
+        position: sticky;
+        width: 10px;
+        bottom: 0;
+        left: 0;
+        padding: 5px 20px;
+        border-radius: 100px;
+        background-color: $light-blue;
+        filter: opacity(0.5);
+
+        button {
+            background: none;
+            outline: none;
+            border: none;
+        }
+    }
+}

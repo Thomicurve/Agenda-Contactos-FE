@@ -1,0 +1,10 @@
+<main class="main-container">
+    <header class="header-wrapper">
+        <h3 style="color: white;">Contactos</h3>
+    </header>
+    <article class="contacts-container">
+        <ng-container *ngFor="let contact of contacts">
+            <app-contact-card [contact]="contact"></app-contact-card>
+        </ng-container>
+    </article>
+</main>

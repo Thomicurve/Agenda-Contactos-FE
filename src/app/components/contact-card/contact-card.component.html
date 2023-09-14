@@ -1,0 +1,14 @@
+<div class="contact-card-wrapper" 
+    (click)="onNavigateToContactDetail(contact.id)">
+    <div class="contact-card-wrapper__card">
+        <div class="contact-image">
+            <img [src]="contact.imageUrl" 
+            alt="contact photo">
+        </div>
+        <p>{{contact.firstName + " " + contact.lastName}}</p>
+        <p>{{contact.address}}</p>
+        <p>{{contact.email}}</p>
+        <p *ngIf="contact.phoneNumber">{{contact.phoneNumber}}</p>
+        <p>{{contact.company}}</p>
+    </div>
+</div>

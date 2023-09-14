@@ -1,0 +1,24 @@
+<main class="main-container">
+    <article class="card-detail-container">
+        <div class="card-detail-container__header">
+
+        </div>
+        <div class="card-detail-container__body">
+            <div class="card-detail-container__img-container">
+                <img [src]="contact.imageUrl" alt="">
+            </div>
+            <div class="card-detail-container__info">
+                <p class="name-text">{{contact.firstName}} {{contact.lastName}}</p>
+                <p class="company-text">{{contact.company}}</p>
+                <div class="contact-container">
+                    <h5>Contacto</h5>
+                    <div class="contact-text-container">
+                        <p class="contact-text-container__text">{{contact.address}}</p>
+                        <p class="contact-text-container__text">{{contact.email}}</p>
+                        <p class="contact-text-container__text">{{contact.phoneNumber}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</main>
