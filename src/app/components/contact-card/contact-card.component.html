@@ -2,8 +2,13 @@
     (click)="onNavigateToContactDetail(contact.id)">
     <div class="contact-card-wrapper__card">
         <div class="contact-image">
-            <img [src]="contact.imageUrl" 
+            <img *ngIf="contact.imageUrl" [src]="contact.imageUrl" 
             alt="contact photo">
+            <div *ngIf="!contact.imageUrl">
+                <p class="contact-no-photo">
+                    {{contact.firstName[0].toUpperCase()}}{{contact.lastName[0].toUpperCase()}}
+                </p>
+            </div>
         </div>
         <p>{{contact.firstName + " " + contact.lastName}}</p>
         <p>{{contact.address}}</p>

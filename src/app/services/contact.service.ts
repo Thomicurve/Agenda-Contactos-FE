@@ -46,12 +46,12 @@ export class ContactService {
           },
           {
             id: 5,
-            firstName: 'Pedro',
-            lastName: 'Garcia',
-            address: 'Calle 789',
-            imageUrl: "https://www.logiconme.com/assets/img-temp/400x450/img5.jpg",
+            firstName: 'Julian',
+            lastName: 'Alvarez',
+            address: 'Calle 231',
+            imageUrl: "",
             company: 'Mercado Libre',
-            email: 'pgarcia@gmail.com',
+            email: 'jalvarez@gmail.com',
             phoneNumber: '1234567890'
           },]
 
@@ -66,7 +66,12 @@ export class ContactService {
             throw new Error('Contact not found');
         }
     }
-    create(contact: any) {}
+    create(contact: Contact): boolean {
+        this.contacts.push(contact);
+        return true;
+    }
     update(contact: any) {}
-    delete(id: number) {}
+    delete(id: number) {
+      return this.contacts = this.contacts.filter(contact => contact.id !== id);
+    }
 }

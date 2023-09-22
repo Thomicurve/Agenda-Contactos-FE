@@ -6,5 +6,19 @@
         <ng-container *ngFor="let contact of contacts">
             <app-contact-card [contact]="contact"></app-contact-card>
         </ng-container>
+        <ng-container *ngIf="!contacts.length">
+            <p style="color: #fff; text-align: center;">No tienes ningún contacto</p>
+        </ng-container>
+        <div class="add-button">
+            <button (click)="dialogNuevoContacto.showModal()">
+                <span class="material-symbols-outlined">add</span>
+            </button>
+        </div>
     </article>
+
+    <dialog method="dialog" #dialogNuevoContacto>
+        <app-add-contact-modal (cerrar)="dialogNuevoContacto.close()"></app-add-contact-modal>
+    </dialog>
 </main>
+
+<div *ngIf="dialogNuevoContacto.open" (click)="dialogNuevoContacto.close()" class="bg-modal"></div>

@@ -5,6 +5,13 @@
     main {
         border-radius: 10px;
     }
+
+    .contact-no-photo {
+        color: #000 !important;
+        text-align: center;
+        font-size: 29px;
+    }
+
     .card-detail-container {
         border-radius: 10px;
 
@@ -13,6 +20,14 @@
             height: 100px;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
+            button {
+                background: none;
+                outline: none;
+                border: none;
+                color: #fff;
+                padding: 10px;
+                cursor: pointer;
+            }
         }
 
         &__body {
@@ -34,6 +49,9 @@
             transition: transform 0.5s ease;
             box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
             overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             
             &:hover {
                 transform: translateY(-40px) scale(1.1);
@@ -49,6 +67,23 @@
             margin-top: -20px;
             width: 100%;
         }
+
+        &__buttons {
+            padding: 20px;
+            align-self: flex-end;
+            display: flex;
+            justify-content: space-around;
+
+            button {
+                background: $error-color;
+                color: #fff;
+                border: none;
+                outline: none;
+                border-radius: 5px;
+                padding: 5px 10px;
+                cursor: pointer;
+            }
+        }
     }
 
     .name-text {
@@ -60,7 +95,7 @@
         font-weight: 300;
         font-size: 14px;
         margin-bottom: 25px;
-        color: #ccc;
+        color: #a3a3a3;
     }
 
     .contact-container h5 {

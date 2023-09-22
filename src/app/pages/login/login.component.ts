@@ -1,6 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginInput } from 'src/app/models/inputs/login-input.model';
 import { AuthService } from 'src/app/services/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -11,13 +13,26 @@ export class LoginComponent{
   loginData: LoginInput = new LoginInput();
 
   constructor(
-    private authService: AuthService
-  ) {
-
-  }
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   submitLogin() {
     this.loginData = this.loginForm.value;
-    this.authService.login(this.loginData);    
+    const loginRes = this.authService.login(this.loginData);    
+    if(loginRes) {
+      Swal.fire({
+        icon: 'success',
+        title: 'Success',
+        text: 'Login successful',
+      })
+      this.router.navigate(['/contacts']);
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Email or password incorrect',
+      })
+    }
   }
 }
