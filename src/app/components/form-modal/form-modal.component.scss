@@ -1,13 +1,33 @@
 ::ng-deep {
+    @import 'src/assets/styles/variables.scss';
     form {
         display: grid;
         gap: 10px;
-        grid-template-rows: repeat(5, 1fr);
         grid-template-columns: 1fr 1fr;
         align-items: stretch;
         width: 100%;
         margin: auto;
         padding-top: 17px;
+    }
+    
+    .modal-container {
+        background-color: $principal-color;
+        border: none;
+        outline: none;
+        margin: 15vh auto;
+        width: 490px;
+        padding: 20px 40px;
+        padding-top: 10px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 25%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1000;
     }
 
     .input-container {

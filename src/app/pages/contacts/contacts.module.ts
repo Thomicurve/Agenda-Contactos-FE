@@ -5,7 +5,7 @@ import { ContactsRoutingModule } from './contacts-routing.module';
 import { ContactsComponent } from './contacts.component';
 import { ContactCardComponent } from 'src/app/components/contact-card/contact-card.component';
 import { ContactDetailComponent } from './contact-detail/contact-detail.component';
-import { AddContactModalComponent } from 'src/app/components/add-contact-modal/add-contact-modal.component';
+import { FormModalComponent } from 'src/app/components/form-modal/form-modal.component';
 
 
 @NgModule({
@@ -18,7 +18,7 @@ import { AddContactModalComponent } from 'src/app/components/add-contact-modal/a
     CommonModule,
     ContactsRoutingModule,
     ContactCardComponent,
-    AddContactModalComponent
+    FormModalComponent
   ],
 })
 export class ContactsModule { }

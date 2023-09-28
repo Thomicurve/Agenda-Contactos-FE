@@ -73,6 +73,7 @@
             align-self: flex-end;
             display: flex;
             justify-content: space-around;
+            column-gap: 10px;
 
             button {
                 background: $error-color;

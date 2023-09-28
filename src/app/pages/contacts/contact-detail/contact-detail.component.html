@@ -30,8 +30,13 @@
                 </div>
             </div>
             <div class="card-detail-container__buttons">
+                <button (click)="toggleShowEditModal()" >Editar</button>
                 <button (click)="onDeleteUser()">Delete</button>
             </div>
         </div>
     </article>
+    <form-modal-modal 
+        *ngIf="showModal" 
+        (cerrar)="toggleShowEditModal()" 
+        [contact]="contact"></form-modal-modal>
 </main>

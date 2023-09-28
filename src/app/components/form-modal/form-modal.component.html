@@ -1,0 +1,49 @@
+<div class="modal-container">
+    <h3>Nuevo contacto</h3>
+    <form #form="ngForm" autocomplete="off" (ngSubmit)="enviarFormulario()">
+        <div class="input-container">
+            <label for="">Nombre</label>
+            <input type="text" [(ngModel)]="contact.firstName" required name="firstName">
+            <p class="error-text" *ngIf="!form.value.firstName && form.touched">El campo 'Nombre' es requerido.</p>
+        </div>
+        <div class="input-container">
+            <label for="">Apellido</label>
+            <input type="text" [(ngModel)]="contact.lastName" required name="lastName">
+            <p class="error-text" *ngIf="!form.value.lastName && form.touched">El campo 'Apellido' es requerido.</p>
+        </div>
+        <div class="input-container">
+            <label for="">Dirección</label>
+            <input type="text" [(ngModel)]="contact.address" required name="address">
+            <p class="error-text" *ngIf="!form.value.address && form.touched">El campo 'Dirección' es requerido.</p>
+        </div>
+        <div class="input-container">
+            <label for="">Número de teléfono</label>
+            <input type="number" [(ngModel)]="contact.phoneNumber" required name="phoneNumber">
+            <p class="error-text" *ngIf="!form.value.phoneNumber && form.touched">El campo 'Número de teléfono' es requerido.</p>
+        </div>
+        <div class="input-container">
+            <label for="">Empresa</label>
+            <input type="text" [(ngModel)]="contact.company" required name="company">
+            <p class="error-text" *ngIf="!form.value.company && form.touched">El campo 'Empresa' es requerido.</p>
+        </div>
+        <div class="input-container">
+            <label for="">Email</label>
+            <input type="email" required name="email" [(ngModel)]="contact.email">
+            <p class="error-text" *ngIf="!form.value.email && form.touched">El campo 'Email' es requerido.</p>
+        </div>
+        <div class="input-container input-container--last">
+            <label for="">Foto</label>
+            <input type="text" [(ngModel)]="contact.imageUrl" name="imageUrl" id=""> 
+        </div>
+        <div class="add-contact-actions">
+            <button 
+                class="button button--crear" 
+                type="submit"
+                [disabled]="form.form.status != 'VALID'">{{contact.id ? 'Editar' : 'Crear'}}</button>
+            <button class="button button--cancelar" type="button" 
+            (click)="cerrar.emit()">Cancelar</button>
+        </div>
+    </form>
+</div>
+
+<div (click)="cerrar.emit()" class="bg-modal"></div>

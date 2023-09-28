@@ -12,6 +12,7 @@ import Swal from 'sweetalert2';
 export class ContactDetailComponent implements OnInit {
   
   contact!: Contact;
+  showModal: boolean = false;
   constructor(
     private route: ActivatedRoute, 
     private contactService: ContactService,
@@ -22,6 +23,10 @@ export class ContactDetailComponent implements OnInit {
     if(!id) return;
 
     this.contact = this.contactService.getOne(parseInt(id));
+  }
+
+  toggleShowEditModal() {
+    this.showModal = !this.showModal
   }
 
   onDeleteUser() {

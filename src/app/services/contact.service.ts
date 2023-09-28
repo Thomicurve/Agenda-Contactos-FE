@@ -35,16 +35,6 @@ export class ContactService {
             phoneNumber: '1234567890'
           },
           {
-            id: 4,
-            firstName: 'Pedro',
-            lastName: 'Garcia',
-            address: 'Calle 789',
-            imageUrl: "https://www.logiconme.com/assets/img-temp/400x450/img5.jpg",
-            company: 'Mercado Libre',
-            email: 'pgarcia@gmail.com',
-            phoneNumber: '1234567890'
-          },
-          {
             id: 5,
             firstName: 'Julian',
             lastName: 'Alvarez',
@@ -70,7 +60,23 @@ export class ContactService {
         this.contacts.push(contact);
         return true;
     }
-    update(contact: any) {}
+    update(contactToUpdate: Contact): boolean {
+      const contactExistente = this.contacts.find(contact => contact.id === contactToUpdate.id);
+      if (contactExistente) {
+        contactExistente.firstName = contactToUpdate.firstName;
+        contactExistente.lastName = contactToUpdate.lastName;
+        contactExistente.address = contactToUpdate.address;
+        contactExistente.email = contactToUpdate.email;
+        contactExistente.imageUrl = contactToUpdate.imageUrl;
+        contactExistente.phoneNumber = contactToUpdate.phoneNumber;
+        contactExistente.company = contactToUpdate.company;
+        return true;
+      } else {
+        return false;
+      }
+      
+    }
+    
     delete(id: number) {
       return this.contacts = this.contacts.filter(contact => contact.id !== id);
     }

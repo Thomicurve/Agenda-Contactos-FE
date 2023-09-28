@@ -10,11 +10,16 @@ import { ContactService } from 'src/app/services/contact.service';
 export class ContactsComponent implements OnInit {
   contacts: Contact[] = [];
   showAddContact: boolean = false;
+  showDialog: boolean = false;
 
   constructor(private contactService: ContactService) {}
 
   ngOnInit(): void {
     this.contacts = this.contactService.getAll();
+  }
+
+  toggleDialog() {
+    this.showDialog = !this.showDialog;
   }
 
   onShowContact() {
