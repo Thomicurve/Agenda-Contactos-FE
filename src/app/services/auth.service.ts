@@ -5,10 +5,13 @@ import { RegisterInput } from '../models/inputs/register-input.model';
 @Injectable({providedIn: 'root'})
 export class AuthService {
     constructor() { }
+
+    isLoggedIn(): boolean {
+        return false;
+    }
     
     login(loginInput: LoginInput) {
         return true;
-        console.log('estoy login');
     }
 
     register(registerInput: RegisterInput) {
