@@ -19,7 +19,7 @@ export class LoginComponent{
 
   submitLogin() {
     this.loginData = this.loginForm.value;
-    const loginRes = this.authService.login(this.loginData);    
+    const loginRes = this.authService.login();    
     if(loginRes) {
       Swal.fire({
         icon: 'success',

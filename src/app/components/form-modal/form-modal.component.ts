@@ -58,6 +58,7 @@ export class FormModalComponent {
   }
 
   private async agregarContacto(){
+    this.contact.id = this.contactService.LastId + 1;
     const res = await this.contactService.create(this.contact);
     if(res){
       this.cerrar.emit();

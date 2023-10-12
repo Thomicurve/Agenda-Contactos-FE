@@ -45,6 +45,10 @@ export class ContactService {
             phoneNumber: '1234567890'
           },]
 
+    get LastId(): number {
+      return this.contacts[this.contacts.length - 1].id;
+    }
+
     getAll(): Contact[] {
         return this.contacts;
     }

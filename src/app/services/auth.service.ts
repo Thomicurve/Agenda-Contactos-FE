@@ -4,14 +4,16 @@ import { RegisterInput } from '../models/inputs/register-input.model';
 
 @Injectable({providedIn: 'root'})
 export class AuthService {
+    isLogged: boolean = false;
     constructor() { }
 
     isLoggedIn(): boolean {
-        return false;
+        return this.isLogged;
     }
     
-    login(loginInput: LoginInput) {
-        return true;
+    login() {
+        this.isLogged = true;
+        return this.isLogged;
     }
 
     register(registerInput: RegisterInput) {
@@ -20,5 +22,7 @@ export class AuthService {
     }
 
     logout() {
+        this.isLogged = false;
+        return this.isLogged;
     }
 }
