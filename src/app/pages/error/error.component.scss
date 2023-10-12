@@ -1,0 +1,36 @@
+::ng-deep {
+    @import 'src/assets/styles/variables.scss';
+    .error-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 80%;
+        width: 100%;
+
+        h3 {
+            color: #fff;
+            font-size: 60px;
+        }
+
+        h4 {
+            color: #fff;
+            font-size: 30px;
+        }
+    }
+
+    img {
+        width: 400px;
+    }
+
+    button {
+        margin-top: 10px;
+        background: $principal-color;
+        border: none;
+        border-radius: 5px;
+        outline: none;
+        color: #fff;
+        cursor: pointer;
+        padding: 10px 20px;
+    }
+}

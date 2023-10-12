@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'contacts',
     canActivate: [UsuarioLogueadoGuard],
     loadChildren: () => import('./pages/contacts/contacts.module').then(m => m.ContactsModule)
+  },
+  {
+    path: '**',
+    loadChildren: () => import('./pages/error/error-routing.module').then(m => m.ErrorRoutingModule),
   }
 ];
 
