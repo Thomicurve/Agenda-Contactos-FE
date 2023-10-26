@@ -1,4 +1,4 @@
 export class LoginInput {
-    email: string = '';
-    password: string = '';
+    nombreDeUsuario: string = '';
+    contrasenia: string = '';
 }

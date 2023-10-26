@@ -1,3 +1,8 @@
 <header>
     <h3><a routerLink="/contacts">Agenda de contactos</a></h3>
+    <button (click)="logout()" *ngIf="userLogged" class="logout-button">
+        <span class="material-symbols-outlined">
+            logout
+        </span>
+    </button>
 </header>

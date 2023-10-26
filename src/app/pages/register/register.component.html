@@ -3,49 +3,49 @@
     <header class="form-header">
       <h2>Registro</h2>
     </header>
-    <form #loginForm="ngForm">
+    <form #registerForm="ngForm" (submit)="registerUser()">
       <div class="input-card">
-        <label for="email">Email</label>
-        <input ngModel #email="ngModel" type="email" name="email" required />
+        <label for="nombre">Nombre</label>
+        <input #nombre="ngModel" ngModel type="text" name="nombre" required />
         <div
           class="error-wrapper"
-          *ngIf="loginForm.value.email == '' && email.touched"
+          *ngIf="registerForm.value.nombre == '' && nombre.touched"
         >
-          <p>El campo 'Email' es requerido.</p>
+          <p class="error-text">El campo 'Nombre' es requerido.</p>
         </div>
       </div>
       <div class="input-card">
-        <label for="name">Nombre Completo</label>
-        <input #name="ngModel" ngModel type="text" name="name" required />
+        <label for="apellido">Apellido</label>
+        <input #apellido="ngModel" ngModel type="text" name="apellido" required />
         <div
           class="error-wrapper"
-          *ngIf="loginForm.value.name == '' && name.touched"
+          *ngIf="registerForm.value.apellido == '' && apellido.touched"
         >
-          <p>El campo 'Nombre Completo' es requerido.</p>
+          <p class="error-text">El campo 'Apellido' es requerido.</p>
         </div>
       </div>
       <div class="input-card">
-        <label for="password">Contraseña</label>
-        <input #password="ngModel" ngModel type="password" name="password" required />
+        <label for="repeatedPass">Contraseña</label>
+        <input #contrasenia="ngModel" ngModel type="password" name="contrasenia" required />
         <div
           class="error-wrapper"
-          *ngIf="loginForm.value.password == '' && password.touched"
+          *ngIf="registerForm.value.contrasenia == '' && contrasenia.touched"
         >
-          <p>El campo 'Contraseña' es requerido.</p>
+          <p class="error-text">El campo 'Contraseña' es requerido.</p>
         </div>
       </div>
       <div class="input-card">
-        <label for="repeatedPass">Repetir Contraseña</label>
-        <input #repeatedPass="ngModel" ngModel type="repeatedPass" name="repeatedPass" required />
+        <label for="repeatedPass">Nombre de Usuario</label>
+        <input #nombreDeUsuario="ngModel" ngModel type="text" name="nombreDeUsuario" required />
         <div
           class="error-wrapper"
-          *ngIf="loginForm.value.repeatedPass == '' && repeatedPass.touched"
+          *ngIf="registerForm.value.nombreDeUsuario == '' && nombreDeUsuario.touched"
         >
-          <p>El campo 'Repetir Contraseña' es requerido.</p>
+          <p class="error-text">El campo 'Nombre de Usuario' es requerido.</p>
         </div>
       </div>
       <div class="button-wrapper">
-        <button [disabled]="loginForm.status == 'INVALID'" type="submit">Enviar</button>
+        <button [disabled]="registerForm.status == 'INVALID'" type="submit">Enviar</button>
       </div>
       <a routerLink="/login">Volver</a>
     </form>

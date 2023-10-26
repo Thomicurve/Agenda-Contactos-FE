@@ -17,21 +17,16 @@ export class LoginComponent{
     private router: Router
   ) {}
 
-  submitLogin() {
-    this.loginData = this.loginForm.value;
-    const loginRes = this.authService.login();    
+  async submitLogin() {
+    const loginRes = await this.authService.login(this.loginForm.value);    
+
     if(loginRes) {
-      Swal.fire({
-        icon: 'success',
-        title: 'Success',
-        text: 'Login successful',
-      })
       this.router.navigate(['/contacts']);
     } else {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'Email or password incorrect',
+        text: 'Error al iniciar sesión',
       })
     }
   }

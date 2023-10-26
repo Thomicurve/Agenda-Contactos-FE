@@ -3,37 +3,37 @@
     <header class="form-header">
       <h2>Login</h2>
     </header>
-    <form #loginForm="ngForm">
+    <form #loginForm="ngForm" (submit)="submitLogin()">
       <div class="input-card">
-        <label for="email">Email</label>
+        <label for="nombreDeUsuario">Nombre de Usuario</label>
         <input
-          type="email"
-          id="email"
-          name="email"
+          type="text"
+          id="nombreDeUsuario"
+          name="nombreDeUsuario"
           required
-          #email="ngModel"
+          #nombreDeUsuario="ngModel"
           ngModel
         />
-        <div class="error-wrapper" *ngIf="loginForm.value.email == '' && loginForm.touched">
-            <p>El campo 'Email' es requerido.</p>
+        <div class="error-wrapper" *ngIf="loginForm.value.nombreDeUsuario == '' && loginForm.touched">
+            <p class="error-text">El campo 'Nombre de Usuario' es requerido.</p>
         </div>
       </div>
       <div class="input-card">
-        <label for="password">Contraseña</label>
+        <label for="contrasenia">Contraseña</label>
         <input
           type="password"
-          id="password"
-          name="password"
+          id="contrasenia"
+          name="contrasenia"
           ngModel
-          #password="ngModel"
+          #contrasenia="ngModel"
           required
         />
-        <div class="error-wrapper" *ngIf="loginForm.value.password == '' && password.touched">
-            <p>El campo 'Contraseña' es requerido.</p>
+        <div class="error-wrapper" *ngIf="loginForm.value.contrasenia == '' && contrasenia.touched">
+            <p class="error-text">El campo 'Contraseña' es requerido.</p>
         </div>
       </div>
       <div class="button-wrapper">
-        <button (click)="submitLogin()" [disabled]="loginForm.status == 'INVALID'" type="submit">Enviar</button>
+        <button [disabled]="loginForm.status == 'INVALID'" type="submit" style="cursor: pointer;">Enviar</button>
       </div>
       <div class="register-text">
         <p>
