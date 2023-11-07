@@ -1,10 +1,10 @@
-export interface Contact {
+export class ContactInput {
     id: number;
-    name: string;
+    firstName: string;
     lastName: string;
     address: string;
     email: string;
-    company: string;
+    image?: string = "";
     number: string;
-    image?: string;
+    company: string;
 }

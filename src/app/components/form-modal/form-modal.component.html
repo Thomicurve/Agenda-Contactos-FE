@@ -3,8 +3,8 @@
     <form #form="ngForm" autocomplete="off" (ngSubmit)="enviarFormulario()">
         <div class="input-container">
             <label for="">Nombre</label>
-            <input type="text" [(ngModel)]="contact.firstName" required name="firstName">
-            <p class="error-text" *ngIf="!form.value.firstName && form.touched">El campo 'Nombre' es requerido.</p>
+            <input type="text" [(ngModel)]="contact.firstName" required name="name">
+            <p class="error-text" *ngIf="!form.value.name && form.touched">El campo 'Nombre' es requerido.</p>
         </div>
         <div class="input-container">
             <label for="">Apellido</label>
@@ -18,8 +18,8 @@
         </div>
         <div class="input-container">
             <label for="">Número de teléfono</label>
-            <input type="number" [(ngModel)]="contact.phoneNumber" required name="phoneNumber">
-            <p class="error-text" *ngIf="!form.value.phoneNumber && form.touched">El campo 'Número de teléfono' es requerido.</p>
+            <input type="number" [(ngModel)]="contact.number" required name="number">
+            <p class="error-text" *ngIf="!form.value.number && form.touched">El campo 'Número de teléfono' es requerido.</p>
         </div>
         <div class="input-container">
             <label for="">Empresa</label>
@@ -33,7 +33,7 @@
         </div>
         <div class="input-container input-container--last">
             <label for="">Foto</label>
-            <input type="text" [(ngModel)]="contact.imageUrl" name="imageUrl" id=""> 
+            <input type="text" [(ngModel)]="contact.image" name="image" id=""> 
         </div>
         <div class="add-contact-actions">
             <button 

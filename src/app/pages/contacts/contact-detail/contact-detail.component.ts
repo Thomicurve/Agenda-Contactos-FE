@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { map } from 'rxjs';
 import { Contact } from 'src/app/interfaces/contact';
 import { ContactService } from 'src/app/services/contact.service';
 import Swal from 'sweetalert2';
@@ -11,7 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class ContactDetailComponent implements OnInit {
   
-  contact!: Contact;
+  contact: Contact;
   showModal: boolean = false;
   constructor(
     private route: ActivatedRoute, 
@@ -22,7 +23,11 @@ export class ContactDetailComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     if(!id) return;
 
-    this.contact = this.contactService.getOne(parseInt(id));
+    this.contactService.getOne(parseInt(id))
+      .pipe(map(contacts => contacts[0]))
+      .subscribe(contact => {
+      this.contact = contact;
+    });
   }
 
   toggleShowEditModal() {
@@ -31,7 +36,7 @@ export class ContactDetailComponent implements OnInit {
 
   onDeleteUser() {
     Swal.fire({
-      title: `Desea eliminar el contacto de ${this.contact.firstName} ${this.contact.lastName}?`,
+      title: `Desea eliminar el contacto de ${this.contact.name} ${this.contact.lastName}?`,
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',

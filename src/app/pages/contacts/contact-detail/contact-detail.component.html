@@ -10,22 +10,22 @@
         <div class="card-detail-container__body">
             <div class="card-detail-container__img-container">
                 <img 
-                *ngIf="contact.imageUrl"
-                [src]="contact.imageUrl" 
-                alt="foto del contacto {{contact.firstName}}">
-                <p class="contact-no-photo" *ngIf="!contact.imageUrl">
-                    {{contact.firstName[0].toUpperCase()}}{{contact.lastName[0].toUpperCase()}}
+                *ngIf="contact.image"
+                [src]="contact.image" 
+                alt="foto del contacto {{contact.name}}">
+                <p class="contact-no-photo" *ngIf="!contact.image">
+                    {{contact.name[0].toUpperCase()}}{{contact.lastName[0].toUpperCase()}}
                 </p>
             </div>
             <div class="card-detail-container__info">
-                <p class="name-text">{{contact.firstName}} {{contact.lastName}}</p>
+                <p class="name-text">{{contact.name}} {{contact.lastName}}</p>
                 <p class="company-text">{{contact.company}}</p>
                 <div class="contact-container">
                     <h5>Contacto</h5>
                     <div class="contact-text-container">
                         <p class="contact-text-container__text">{{contact.address}}</p>
                         <p class="contact-text-container__text">{{contact.email}}</p>
-                        <p class="contact-text-container__text">{{contact.phoneNumber}}</p>
+                        <p class="contact-text-container__text">{{contact.number}}</p>
                     </div>
                 </div>
             </div>
@@ -38,5 +38,5 @@
     <form-modal-modal 
         *ngIf="showModal" 
         (cerrar)="toggleShowEditModal()" 
-        [contact]="contact"></form-modal-modal>
+        [contactToEdit]="contact"></form-modal-modal>
 </main>

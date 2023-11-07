@@ -15,14 +15,23 @@ export class ContactsComponent implements OnInit {
   constructor(private contactService: ContactService) {}
 
   ngOnInit(): void {
-    this.contacts = this.contactService.getAll();
+    this.getContacts();
   }
 
   toggleDialog() {
     this.showDialog = !this.showDialog;
+    if(!this.showDialog) {
+      this.getContacts();
+    }
   }
 
   onShowContact() {
     this.showAddContact = !this.showAddContact;
+  }
+
+  private getContacts() {
+    this.contactService.getAll().subscribe((contacts) => {
+      this.contacts = contacts;
+    });
   }
 }
