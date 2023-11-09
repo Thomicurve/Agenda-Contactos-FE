@@ -1,5 +1,6 @@
 <main class="main-container">
-    <article class="card-detail-container">
+    <spinner *ngIf="loading"></spinner>
+    <article *ngIf="!loading" class="card-detail-container">
         <div class="card-detail-container__header">
             <button (click)="onClickBack()">
                 <span class="material-symbols-outlined">
@@ -9,10 +10,11 @@
         </div>
         <div class="card-detail-container__body">
             <div class="card-detail-container__img-container">
-                <img 
-                *ngIf="contact.image"
-                [src]="contact.image" 
-                alt="foto del contacto {{contact.name}}">
+                <ng-container *ngIf="contact.image">
+                    <img 
+                    [src]="contact.image" 
+                    alt="foto del contacto {{contact.name}}">
+                </ng-container>
                 <p class="contact-no-photo" *ngIf="!contact.image">
                     {{contact.name[0].toUpperCase()}}{{contact.lastName[0].toUpperCase()}}
                 </p>

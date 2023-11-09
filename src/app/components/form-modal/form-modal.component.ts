@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Contact } from 'src/app/interfaces/contact';
 import { ContactInput } from 'src/app/models/inputs/contact-input.model';
@@ -13,16 +13,16 @@ import Swal from 'sweetalert2';
   styleUrls: ['./form-modal.component.scss'],
   standalone: true
 })
-export class FormModalComponent {
+export class FormModalComponent implements OnInit {
   @Output() cerrar = new EventEmitter();
   @Input() contactToEdit: Contact;
 
   contact = new ContactInput();
 
-  constructor(private contactService: ContactService) {
-    if(this.contactToEdit) {
-      this.mapContactToContactInput();
-    }
+  constructor(private contactService: ContactService) {}
+
+  ngOnInit(): void {
+    this.mapContactToContactInput();    
   }
   
 
@@ -36,24 +36,25 @@ export class FormModalComponent {
   }
 
   private async editarContacto() {
-    const res = await this.contactService.update(this.contact);
-    if(res){
-      this.cerrar.emit();
-      Swal.fire({
-        title: 'Contacto actualizado',
-        timer: 2000,
-        showConfirmButton: false,
-        icon: "success",
-        toast: true,
-        position: 'bottom'
-      })
-    } else {
+    this.contactService.update(this.contact).subscribe(res => {
+      if(res) {
+        this.cerrar.emit();
+        Swal.fire({
+          title: 'Contacto actualizado',
+          timer: 2000,
+          showConfirmButton: false,
+          icon: "success",
+          toast: true,
+          position: 'bottom'
+        })
+      } else {
       this.cerrar.emit();
       Swal.fire({
         title: 'Error actualizando contacto',
         icon: "error",
       })
-    }
+      }
+    })
   }
 
   private async agregarContacto(){

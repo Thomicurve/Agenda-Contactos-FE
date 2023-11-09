@@ -25,24 +25,12 @@ export class ContactService {
     create(contact: ContactInput): Observable<any> {
       return this.http.post(API + 'Contact', contact);
     }
-    update(contactToUpdate: ContactInput): boolean {
-      const contactExistente = this.contacts.find(contact => contact.id === contactToUpdate.id);
-      if (contactExistente) {
-        // contactExistente.firstName = contactToUpdate.firstName;
-        // contactExistente.lastName = contactToUpdate.lastName;
-        // contactExistente.address = contactToUpdate.address;
-        // contactExistente.email = contactToUpdate.email;
-        // contactExistente.image = contactToUpdate.image;
-        // contactExistente.phoneNumber = contactToUpdate.phoneNumber;
-        // contactExistente.company = contactToUpdate.company;
-        return true;
-      } else {
-        return false;
-      }
-      
+    update(contactToUpdate: ContactInput): Observable<any> {
+      return this.http
+        .put(`${API}Contact/${contactToUpdate.id}?contactId=${contactToUpdate.id}`, contactToUpdate)
     }
     
     delete(id: number) {
-      return this.contacts = this.contacts.filter(contact => contact.id !== id);
+      return this.http.delete(API + 'Contact/' + id);
     }
 }
