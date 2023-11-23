@@ -3,33 +3,33 @@
     <form #form="ngForm" autocomplete="off" (ngSubmit)="enviarFormulario()">
         <div class="input-container">
             <label for="">Nombre</label>
-            <input type="text" [(ngModel)]="contact.firstName" required name="name">
-            <p class="error-text" *ngIf="!form.value.name && form.touched">El campo 'Nombre' es requerido.</p>
+            <input #firstName="ngModel" type="text" [(ngModel)]="contact.firstName" required name="name">
+            <p class="error-text" *ngIf="!form.value.name && firstName.control.touched">El campo 'Nombre' es requerido.</p>
         </div>
         <div class="input-container">
             <label for="">Apellido</label>
-            <input type="text" [(ngModel)]="contact.lastName" required name="lastName">
-            <p class="error-text" *ngIf="!form.value.lastName && form.touched">El campo 'Apellido' es requerido.</p>
+            <input #lastName="ngModel" type="text" [(ngModel)]="contact.lastName" required name="lastName">
+            <p class="error-text" *ngIf="!form.value.lastName && lastName.control.touched">El campo 'Apellido' es requerido.</p>
         </div>
         <div class="input-container">
             <label for="">Dirección</label>
-            <input type="text" [(ngModel)]="contact.address" required name="address">
-            <p class="error-text" *ngIf="!form.value.address && form.touched">El campo 'Dirección' es requerido.</p>
+            <input #address="ngModel" type="text" [(ngModel)]="contact.address" required name="address">
+            <p class="error-text" *ngIf="!form.value.address && address.control.touched">El campo 'Dirección' es requerido.</p>
         </div>
         <div class="input-container">
             <label for="">Número de teléfono</label>
-            <input type="number" [(ngModel)]="contact.number" required name="number">
-            <p class="error-text" *ngIf="!form.value.number && form.touched">El campo 'Número de teléfono' es requerido.</p>
+            <input #number="ngModel" type="number" [(ngModel)]="contact.number" required name="number">
+            <p class="error-text" *ngIf="!form.value.number && number.control.touched">El campo 'Número de teléfono' es requerido.</p>
         </div>
         <div class="input-container">
             <label for="">Empresa</label>
-            <input type="text" [(ngModel)]="contact.company" required name="company">
-            <p class="error-text" *ngIf="!form.value.company && form.touched">El campo 'Empresa' es requerido.</p>
+            <input #company="ngModel" type="text" [(ngModel)]="contact.company" required name="company">
+            <p class="error-text" *ngIf="!form.value.company && company.control.touched">El campo 'Empresa' es requerido.</p>
         </div>
         <div class="input-container">
             <label for="">Email</label>
-            <input type="email" required name="email" [(ngModel)]="contact.email">
-            <p class="error-text" *ngIf="!form.value.email && form.touched">El campo 'Email' es requerido.</p>
+            <input #email="ngModel" type="email" required name="email" [(ngModel)]="contact.email">
+            <p class="error-text" *ngIf="!form.value.email && email.control.touched">El campo 'Email' es requerido.</p>
         </div>
         <div class="input-container input-container--last">
             <label for="">Foto</label>

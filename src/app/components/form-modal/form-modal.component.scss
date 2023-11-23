@@ -1,14 +1,16 @@
+form {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    width: 100%;
+    margin: auto;
+    padding-top: 17px;
+}
+
 ::ng-deep {
     @import 'src/assets/styles/variables.scss';
-    form {
-        display: grid;
-        gap: 10px;
-        grid-template-columns: 1fr 1fr;
-        align-items: stretch;
-        width: 100%;
-        margin: auto;
-        padding-top: 17px;
-    }
+    
     
     .modal-container {
         background-color: $principal-color;

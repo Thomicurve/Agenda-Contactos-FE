@@ -3,7 +3,7 @@
     <header class="form-header">
       <h2>Registro</h2>
     </header>
-    <form #registerForm="ngForm" (submit)="registerUser()">
+    <form autocomplete="off" #registerForm="ngForm" (submit)="registerUser()">
       <div class="input-card">
         <label for="nombre">Nombre</label>
         <input #nombre="ngModel" ngModel type="text" name="nombre" required />
@@ -24,6 +24,18 @@
           <p class="error-text">El campo 'Apellido' es requerido.</p>
         </div>
       </div>
+      
+      <div class="input-card">
+        <label for="nombreDeUsuarioRegister">Nombre de Usuario</label>
+        <input #nombreDeUsuario="ngModel" ngModel type="text" name="nombreDeUsuarioRegister" required />
+        <div
+          class="error-wrapper"
+          *ngIf="registerForm.value.nombreDeUsuarioRegister == '' && nombreDeUsuario.touched"
+        >
+          <p class="error-text">El campo 'Nombre de Usuario' es requerido.</p>
+        </div>
+      </div>
+
       <div class="input-card">
         <label for="repeatedPass">Contraseña</label>
         <input #contrasenia="ngModel" ngModel type="password" name="contrasenia" required />
@@ -32,16 +44,6 @@
           *ngIf="registerForm.value.contrasenia == '' && contrasenia.touched"
         >
           <p class="error-text">El campo 'Contraseña' es requerido.</p>
-        </div>
-      </div>
-      <div class="input-card">
-        <label for="repeatedPass">Nombre de Usuario</label>
-        <input #nombreDeUsuario="ngModel" ngModel type="text" name="nombreDeUsuario" required />
-        <div
-          class="error-wrapper"
-          *ngIf="registerForm.value.nombreDeUsuario == '' && nombreDeUsuario.touched"
-        >
-          <p class="error-text">El campo 'Nombre de Usuario' es requerido.</p>
         </div>
       </div>
       <div class="button-wrapper">
